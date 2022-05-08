@@ -21,8 +21,8 @@ class TextBox:
                 self.active = False
         if event.type == pg.KEYDOWN:
             if self.active:
+                self.returned = self.text
                 if event.key == pg.K_RETURN:
-                    self.returned = self.text
                     self.text = ''
                 elif event.key == pg.K_BACKSPACE:
                     self.text = self.text[:-1]

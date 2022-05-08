@@ -58,7 +58,6 @@ class Game:
 		self.score_req = 20 # score necessario para subir de nivel
 
 		self.words = [] # palavras que estão na tela
-		self.txt_input = TextBox(10, self.HEIGHT-90, 300)
 
 		self.word_list = []
 		self.filename = 'python'
@@ -82,9 +81,14 @@ class Game:
 		self.used_lines_max = 5
 
 
+
+		self.txt_input = TextBox(10, self.HEIGHT-90, 200)
+		self.lb = Leaderboard(self.WIDTH//2 - 200, 20, 400, 400, self.filename, True)
+
+
 	def draw(self) -> None:
 		# atualiza a caixa de texto
-		self.txt_input.update()
+		#self.txt_input.update()
 
 		# Plano de fundo
 		self.WIN.fill(c.BLACK)
@@ -120,7 +124,7 @@ class Game:
 		self.words.append(word)
 		# define o novo target time
 		self.target_time = self.current_time + random.randint(self.target_interval - 100,self.target_interval + 100)
-		print(self.used_lines)
+		#print(self.used_lines)
 
 	def check_words(self) -> None:
 		for word in self.words:
@@ -171,8 +175,12 @@ class Game:
 
 
 	def show_leaderboard(self):
-		lb = Leaderboard(self.WIDTH//2 - 200, 20, 400, 400, self.filename)
-		lb.draw(self.WIN)
+		if self.lb.new_entry:
+			self.lb.draw_textbox(self.WIN)
+			self.lb.update_textbox(self.WIN)
+		else:
+			self.lb.__init__(self.WIDTH//2 - 200, 20, 400, 400, self.filename, False)
+			self.lb.draw(self.WIN)
 		pg.display.update()
 
 
@@ -189,6 +197,13 @@ class Game:
 					if event.type == pg.QUIT: # evento para sair do pygame
 						self.running = False
 						self.on_leaderboard = False
+					if event.type == pg.KEYDOWN:
+						if self.lb.new_entry:
+							if event.key == pg.K_RETURN:
+								print(self.lb.txtbox.returned)
+								self.lb.save_score(self.lb.txtbox.returned, self.score)
+								self.lb.new_entry = False
+					self.lb.txtbox.handle_event(event)
 				self.show_leaderboard()
 
 

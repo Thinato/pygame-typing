@@ -1,10 +1,10 @@
 # inspirado no bisqwit
 
-import game
+from game import Game
 
 
 def main():
-	g = game.Game()
+	g = Game()
 	g.start()
 
 if __name__ == '__main__':

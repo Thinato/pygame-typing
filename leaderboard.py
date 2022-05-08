@@ -1,12 +1,24 @@
 import pygame as pg
 import colors as c
+from organize_files import Organize
+from textbox import TextBox
 import os
 
+
 class Leaderboard:
-	def __init__(self, x: int, y: int, w: int, h: int, game: str):
+	def __init__(self, x: int, y: int, w: int, h: int, game: str, new_entry: bool=False):
 		self.FONT = pg.font.SysFont('consolas', 24)
 		self.game = game
-		self.file = open(os.path.join('leaderboards', game+'.txt'), 'r')
+		self.new_entry = new_entry
+
+		o = Organize()
+		# se eu tivesse mais arquivos no 'leaderboads' eu iria colocar o 'organize_file'
+		# mas como são poucos uso o 'organize_all' mesmo
+
+		o.organize_all()
+		# o.organize_file(game+'.txt')
+
+		self.file = open(os.path.join('leaderboards', self.game+'.txt'), 'r')
 		self.scores = []
 		for line in self.file:
 			self.scores.append(line.strip())
@@ -19,7 +31,20 @@ class Leaderboard:
 
 
 		self.BACKGROUND = pg.Rect(x, y, w, h)
+		self.BACKGROUND_TEXTBOX = pg.Rect(x, y, w, 32+12)
+		self.txtbox = TextBox(self.x+6, self.y+6, self.w-12)
 
+	def draw_textbox(self, screen):
+		pg.draw.rect(screen, c.DARK_BLUE, self.BACKGROUND_TEXTBOX)
+
+	def update_textbox(self, screen):
+		self.txtbox.draw(screen)
+
+	def save_score(self, name: str, score: int):
+		with open(os.path.join('leaderboards', self.game+'.txt'), 'a') as file:
+			file.write(name+';'+str(score)+'\n')
+
+		pass
 
 	def draw(self, screen) -> None:
 		pg.draw.rect(screen, c.DARK_BLUE, self.BACKGROUND)
