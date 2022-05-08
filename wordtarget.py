@@ -8,7 +8,7 @@ class WordTarget:
 
 		self.text = text
 		self.txt_surface = self.FONT.render(text, True, self.COLOR)
-		self.speed = 1.3 + level//3
+		self.speed = 1.3 + level//20
 		self.x = x
 		self.y = y
 
