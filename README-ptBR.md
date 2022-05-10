@@ -1,4 +1,4 @@
-# Typing Game - pygame 
+# Jogo de digitação - pygame 
 * [English](README.md)
 * **Português**
 <!-- PROJECT LOGO -->
