@@ -33,7 +33,7 @@ This project was heavily inspired by bisqwit's typing game (wspeed)
 * pygame 2.1.2
 
 ## How to Start the Game
-Run main.py
+Run main.py<br/>
 `$ python main.py`
 
 
