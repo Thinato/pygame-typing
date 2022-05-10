@@ -1,4 +1,6 @@
 # Typing Game - pygame 
+* [English]
+* [Português](README-ptBR.md)
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
