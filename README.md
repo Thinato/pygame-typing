@@ -1,5 +1,5 @@
 # Typing Game - pygame 
-* **English**
+* [English]
 * [Português](README-ptBR.md)
 <!-- PROJECT LOGO -->
 <br />
@@ -28,7 +28,7 @@
 ## About
 This is a implementation of a typing game, the objective is to not let the words come to the left side by typing them and pressing return. Each word has a score that when you type it is registred below, this score is also used to make the game harder and harder as you progress through.
 
-This project was heavily inspired by bisqwit's typing game (wspeed)
+This project was heavily inspired by [bisqwit's](https://bisqwit.iki.fi/) typing game ([wspeed](https://bisqwit.iki.fi/wspeed/))
 
 ![gif demonstrating the game being played][demo]
 
