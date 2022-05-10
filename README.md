@@ -38,11 +38,16 @@ This project was heavily inspired by bisqwit's typing game (wspeed)
 Run main.py<br/>
 `$ python main.py`
 
+## Assets used
+* [jsfxr](https://sfxr.me/) - An 8 bit sound generator made with JavaScript by Eric Fredricksen, the original version (sfxr) was made by DrPetter
+* Background music - An 8 bit port of J.S. Bach: [Little Fugue in G minor (BWV 578)](https://www.youtube.com/watch?v=Bbox4oi6HjA), the remix was made by [MajorNebula](https://www.youtube.com/channel/UCyWw_f8wEU3PIEO2LaKgoUw)
+
 
 ## Further Reading
 * [pygame](https://www.pygame.org/wiki/about)
 * [wspeed](https://bisqwit.iki.fi/wspeed/)
 * [jsfxr](https://sfxr.me/)
+* [background music](https://www.youtube.com/watch?v=ZAwYwK4Ujas)
 
 
 
