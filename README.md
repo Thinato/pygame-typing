@@ -28,6 +28,8 @@ This is a implementation of a typing game, the objective is to not let the words
 
 This project was heavily inspired by bisqwit's typing game (wspeed)
 
+[![gif demonstrating the game being played][demo]]
+
 ## Requirements
 * Python 3.10
 * pygame 2.1.2
@@ -59,4 +61,4 @@ Run main.py<br/>
 [license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: images/screenshot.png
+[demo]: demo/demo.gif
