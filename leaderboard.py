@@ -31,6 +31,8 @@ class Leaderboard:
 
 
 		self.BACKGROUND = pg.Rect(x, y, w, h)
+		self.BACKGROUND_LINE = pg.Rect(x+8, y+8, w-16, h-16)
+		self.BACKGROUND_IN = pg.Rect(x+10, y+10, w-20, h-20)
 		self.BACKGROUND_TEXTBOX = pg.Rect(x, y, w, 32+12)
 		self.txtbox = TextBox(self.x+6, self.y+6, self.w-12)
 
@@ -47,9 +49,12 @@ class Leaderboard:
 		pass
 
 	def draw(self, screen) -> None:
+		screen.fill(c.BLACK)
 		pg.draw.rect(screen, c.DARK_BLUE, self.BACKGROUND)
+		pg.draw.rect(screen, c.WHITE, self.BACKGROUND_LINE)
+		pg.draw.rect(screen, c.DARK_BLUE, self.BACKGROUND_IN)
 		txt_title = self.FONT.render('Leaderboard', 1, c.WHITE)
-		screen.blit(txt_title, (self.x+self.w//2 - txt_title.get_width()//2, self.y+10))
+		screen.blit(txt_title, (self.x+self.w//2 - txt_title.get_width()//2, self.y+15))
 
 		txt_name = self.FONT.render('Name', 1, c.WHITE)
 		screen.blit(txt_name, (self.x+self.w*.3 - txt_name.get_width()//2, self.y+45))
@@ -60,7 +65,7 @@ class Leaderboard:
 		# Linhas brancas
 		pg.draw.rect(screen, c.WHITE, pg.Rect(self.x+10, self.y+40, self.w-20, 2)) # horizontal
 		pg.draw.rect(screen, c.WHITE, pg.Rect(self.x+10, self.y+70, self.w-20, 2)) # horiontal
-		pg.draw.rect(screen, c.WHITE, pg.Rect(self.x+self.w*.6, self.y+40, 2, self.h-40-20)) # vertical
+		pg.draw.rect(screen, c.WHITE, pg.Rect(self.x+self.w*.6, self.y+40, 2, self.h-40-10)) # vertical
 
 		# Nomes e pontos
 		count = 0

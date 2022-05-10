@@ -69,7 +69,7 @@ class Game:
 		self.TITLE = self.FONT.render(self.filename, 1, c.WHITE)
 
 		self.running = True
-		self.on_leaderboard = False
+		self.on_leaderboard = True
 		self.debug = debug
 		self.current_time = 0 # tempo do jogo em MS
 		self.target_time = 0 # tempo que a proxima palavra vai aparecer
@@ -190,10 +190,12 @@ class Game:
 		self.BACK_SOUND.play()
 
 		while self.running: # game loop
+			print(self.txt_input.returned)
 			while self.on_leaderboard:
 				self.CLOCK.tick(self.FPS)
-
+				print(self.lb.txtbox.returned)
 				for event in pg.event.get():
+					self.lb.txtbox.handle_event(event)
 					if event.type == pg.QUIT: # evento para sair do pygame
 						self.running = False
 						self.on_leaderboard = False
@@ -203,7 +205,7 @@ class Game:
 								print(self.lb.txtbox.returned)
 								self.lb.save_score(self.lb.txtbox.returned, self.score)
 								self.lb.new_entry = False
-					self.lb.txtbox.handle_event(event)
+					
 				self.show_leaderboard()
 
 

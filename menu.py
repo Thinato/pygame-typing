@@ -18,7 +18,6 @@ class Menu:
         self.game.reset_keys()
 
 class MainMenu(Menu):
-	pass
 
 
 
