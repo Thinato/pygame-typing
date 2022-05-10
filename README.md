@@ -28,7 +28,7 @@ This is a implementation of a typing game, the objective is to not let the words
 
 This project was heavily inspired by bisqwit's typing game (wspeed)
 
-[![gif demonstrating the game being played][demo]]
+![gif demonstrating the game being played][demo]
 
 ## Requirements
 * Python 3.10
