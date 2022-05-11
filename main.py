@@ -10,5 +10,7 @@ def main(word_list: str):
 	g.start()
 
 if __name__ == '__main__':
-	word_list = str(sys.argv[1])
+	word_list = 'python'
+	if len(sys.argv) > 1:
+		word_list = str(sys.argv[1])
 	main(word_list)
