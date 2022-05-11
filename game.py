@@ -18,6 +18,9 @@ class Game:
 
 		# Título da aplicação
 		pg.display.set_caption('Typing Game')
+		# Ícone da aplicação
+		icon = pg.image.load(os.path.join('assets', 'img', 'logo32.png'))
+		pg.display.set_icon(icon)
 
 		# Defina a altura e a largura da janela
 		self.WIDTH, self.HEIGHT = 800, 600
@@ -238,7 +241,7 @@ class Game:
 		pg.time.delay(2000)
 		self.on_leaderboard = True
 
-
+		
 	def show_leaderboard(self) -> None:
 		if self.lb.new_entry:
 			self.lb.draw_textbox(self.WIN, self.score, round((self.hits-self.misses)/(self.hits+self.misses),2))
@@ -248,6 +251,7 @@ class Game:
 			self.lb.draw(self.WIN)
 		pg.display.update()
 
+	# Calcula as palavras por minuto
 	def calculate_wpm(self) -> int:
 		return int((self.char_hits/5) / ((self.current_time/60000)))
 
