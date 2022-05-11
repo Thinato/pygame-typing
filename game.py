@@ -16,6 +16,8 @@ class Game:
 		# inicializa a biblioteca sonora do pygame
 		pg.mixer.init()
 
+		# Título da aplicação
+		pg.display.set_caption('Typing Game')
 
 
 		self.WIDTH, self.HEIGHT = 800, 600
@@ -48,9 +50,14 @@ class Game:
 		self.LEVELUP_SOUND = pg.mixer.Sound(os.path.join('assets', 'sfx', 'levelup.wav'))
 		self.LEVELUP_SOUND.set_volume(0.3)
 
-		self.BACK_SOUND = pg.mixer.Sound(os.path.join('assets', 'sfx', 'back.mp3'))
 
+		self.BACK_SOUND = pg.mixer.Sound(os.path.join('assets', 'sfx', 'back'+str(random.randint(0,1))+'.mp3'))
+		self.BACK_SOUND_LOOPS = 1
+		self.BACK_SOUND_TARGETTIME = ((self.BACK_SOUND.get_length()*1000) * self.BACK_SOUND_LOOPS)
+		print(self.BACK_SOUND.get_length() * 1000)
 
+		# musica de fim de jogo
+		self.GAMEOVER_SOUND = pg.mixer.Sound(os.path.join('assets', 'sfx', 'gameover.mp3'))
 
 		self.score = 0 # pontuação
 		self.lives = 3 # vidas, o zero conta, então são 4
@@ -69,7 +76,7 @@ class Game:
 		self.TITLE = self.FONT.render(self.filename, 1, c.WHITE)
 
 		self.running = True
-		self.on_leaderboard = True
+		self.on_leaderboard = False
 		self.debug = debug
 		self.current_time = 0 # tempo do jogo em MS
 		self.target_time = 0 # tempo que a proxima palavra vai aparecer
@@ -190,10 +197,13 @@ class Game:
 		self.BACK_SOUND.play()
 
 		while self.running: # game loop
-			print(self.txt_input.returned)
+			stop_sound = True
 			while self.on_leaderboard:
+				if stop_sound:
+					pg.mixer.stop()
+					self.GAMEOVER_SOUND.play()
+					stop_sound = False
 				self.CLOCK.tick(self.FPS)
-				print(self.lb.txtbox.returned)
 				for event in pg.event.get():
 					self.lb.txtbox.handle_event(event)
 					if event.type == pg.QUIT: # evento para sair do pygame
@@ -226,6 +236,12 @@ class Game:
 			# se o tempo 'target' chegar, crie uma nova palavra
 			if self.current_time >= self.target_time:
 				self.create_word()
+
+			# aqui é o loop da música, eu fiquei com preguiça de testar, mas deve estar funcionando
+			print(str(self.current_time) + ' | ' + str(((self.BACK_SOUND.get_length()*1000) * self.BACK_SOUND_LOOPS) + 1000))
+			if self.current_time > ((self.BACK_SOUND.get_length()*1000) * self.BACK_SOUND_LOOPS) + 1000:
+				self.BACK_SOUND.play()
+				self.BACK_SOUND_LOOPS += 1
 
 
 
