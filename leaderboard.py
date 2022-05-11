@@ -33,11 +33,13 @@ class Leaderboard:
 		self.BACKGROUND = pg.Rect(x, y, w, h)
 		self.BACKGROUND_LINE = pg.Rect(x+8, y+8, w-16, h-16)
 		self.BACKGROUND_IN = pg.Rect(x+10, y+10, w-20, h-20)
-		self.BACKGROUND_TEXTBOX = pg.Rect(x, y, w, 32+12)
+		self.BACKGROUND_TEXTBOX = pg.Rect(x, y, w, 32+12+32)
 		self.txtbox = TextBox(self.x+6, self.y+6, self.w-12)
 
-	def draw_textbox(self, screen):
+	def draw_textbox(self, screen, score, accuracy):
 		pg.draw.rect(screen, c.DARK_BLUE, self.BACKGROUND_TEXTBOX)
+		text = self.FONT.render(f'Score: {score} x {accuracy} = {int(score*accuracy)}', 1, c.WHITE)
+		screen.blit(text, (int(self.x + (self.w/2) - (text.get_width()/2)), self.y+32+10))
 
 	def update_textbox(self, screen):
 		self.txtbox.draw(screen)
@@ -45,8 +47,6 @@ class Leaderboard:
 	def save_score(self, name: str, score: int):
 		with open(os.path.join('leaderboards', self.game+'.txt'), 'a') as file:
 			file.write(name+';'+str(score)+'\n')
-
-		pass
 
 	def draw(self, screen) -> None:
 		screen.fill(c.BLACK)

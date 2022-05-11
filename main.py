@@ -1,10 +1,10 @@
-# inspirado no bisqwit
+# inspirado no wspeed do bisqwit
 
 from game import Game
 
 
 def main():
-	g = Game()
+	g = Game('portugues')
 	g.start()
 
 if __name__ == '__main__':

@@ -1,3 +1,4 @@
+# algumas core já prontas, para o código ficar mais legível
 
 WHITE = (255, 255, 255)
 BLACK = (0,0,0)
