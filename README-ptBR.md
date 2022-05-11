@@ -1,4 +1,4 @@
-# Jogo de digitação - pygame 
+# Typing Game - pygame
 * [English](README.md)
 * **Português**
 <!-- PROJECT LOGO -->
@@ -39,6 +39,21 @@ Esse projeto foi, em grande parte, inspirado pelo jogo de digitação do [bisqwi
 ## Como iniciar o jogo
 Run main.py<br/>
 `$ python main.py`
+
+## Recursos
+* Sistema de pontuação
+* Dificuldade aumenta de acordo com o progresso
+* Sistema de Ranking
+* Medidor de palavras por minuto
+* Medidod de precisão
+* Método simples para criação de novas palavras e listas de palavras
+
+## Como criar listas de palavras
+1. Vá até a pasta 'word_lists'
+2. Crie um novo documento de texto (.txt)
+3. Escreva cada palavra em cada uma das linhas
+4. Salve o arquivo
+5. Com o mesmo nome que foi salvo o arquivo em 'word_lists', crie um novo documento de texto vazio na pasta 'leaderboards'.
 
 ## Recursos usados
 * [jsfxr](https://sfxr.me/) - Um gerador de som de 8 bits feito em JavaScript por Eric Fredricksen, a versão origial (sfxr) foi feita por DrPetter.

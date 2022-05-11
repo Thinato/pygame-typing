@@ -1,4 +1,4 @@
-# Typing Game - pygame 
+# Typing Game - pygame
 * **English**
 * [Português](README-ptBR.md)
 <!-- PROJECT LOGO -->
@@ -39,6 +39,21 @@ This project was heavily inspired by [bisqwit's](https://bisqwit.iki.fi/) typing
 ## How to Start the Game
 Run main.py<br/>
 `$ python main.py`
+
+## Features
+* Scoring system
+* Difficulty increase over progress
+* Leaderboarding system
+* Words per minute meter
+* Accuracy meter
+* Easy to create new words and word_lists
+
+## How to create word_lists
+1. Go to 'word_lsts' folder
+2. Create a new text (.txt) file
+3. Type each word in each line of the file
+4. Then save the file
+5. Create a new empty text file in 'leaderboards' folder with the same name of your word_list file.
 
 ## Assets used
 * [jsfxr](https://sfxr.me/) - An 8 bit sound generator made with JavaScript by Eric Fredricksen, the original version (sfxr) was made by DrPetter
