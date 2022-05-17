@@ -45,7 +45,7 @@ Run main.py<br/>
 * Dificuldade aumenta de acordo com o progresso
 * Sistema de Ranking
 * Medidor de palavras por minuto
-* Medidod de precisão
+* Medidor de precisão
 * Método simples para criação de novas palavras e listas de palavras
 
 ## Como criar listas de palavras
